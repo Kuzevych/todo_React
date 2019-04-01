@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import Main from './components/Main';
+import TodoItem from './components/TodoItem';
 
 class App extends Component {
   render() {
     return (
-      <>
-        <Main name='Kolya' surname='Kuzevych' fath='Iosifovich'/>
-      </>
+      <div className='todo-list'>
+        <TodoItem/>
+        <TodoItem/>
+        <TodoItem/>
+        <TodoItem/>
+      </div>
     );
   }
 }
