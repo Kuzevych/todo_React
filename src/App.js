@@ -10,19 +10,37 @@ class App extends Component {
         super()
         this.state = {
             todos: todosData
-        }
+        };
+        this.handleChange=this.handleChange.bind(this);
+    }
+
+    handleChange(id){
+        this.setState(prevState =>{
+            const newTodos = prevState.todos.map(todo=>{
+                if(todo.id===id){
+                    todo.completed = !todo.completed
+                }
+                return todo;
+            })
+            return {
+                todos: newTodos
+            }
+        })
     }
 
     render() {
-        //console.log(this.state.todosData);
-    //const todoItems = todosData.map(item=><TodoItem key={item.id} completed={item.completed} text={item.text}/>);
-    const todoItems = this.state.todos.map(item=><TodoItem key={item.id} completed={item.completed} text={item.text}/>);
+        const todoItems = this.state.todos.map(item=>
+            <TodoItem
+                key={item.id}
+                item={item}
+                changeStatus={this.handleChange}
+            />);
         return (
-            <div className='todo-list'>
-                {todoItems}
-            </div>
-        );
-    }
+                <div className='todo-list'>
+                    {todoItems}
+                </div>
+            );
+        }
 }
 
 App.propTypes = {};
