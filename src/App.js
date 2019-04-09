@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-//import PropTypes from 'prop-types';
 import TodoItem from './components/TodoItem';
 import todosData from "./todosData";
-//import todosData from './todosData';
 
 
 class App extends Component {
@@ -16,14 +14,14 @@ class App extends Component {
 
     handleChange(id){
         this.setState(prevState =>{
-            const newTodos = prevState.todos.map(todo=>{
+            const updateTodos = prevState.todos.map(todo=>{
                 if(todo.id===id){
                     todo.completed = !todo.completed
                 }
                 return todo;
-            })
+            });
             return {
-                todos: newTodos
+                todos: updateTodos
             }
         })
     }
