@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TodoItem from './components/TodoItem';
 import todosData from "./todosData";
+import Form from './components/Form';
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
             />);
         return (
                 <div className='todo-list'>
+                    <Form />
                     {todoItems}
                 </div>
             );

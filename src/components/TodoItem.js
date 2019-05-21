@@ -1,11 +1,10 @@
 import React from 'react';
 
 const TodoItem =(props) => {
-    let textDecorator;
-    if (props.item.completed){
-        textDecorator='line-through'
-    } else {
-        textDecorator='none'
+    const completedStyle = {
+        fontStyle: "italic",
+        color: "#cdcdcd",
+        textDecoration: "line-through"
     }
     return (
         <div className='todo-item'>
@@ -13,7 +12,7 @@ const TodoItem =(props) => {
                 <input onChange={()=>props.changeStatus(props.item.id)}
                        type='checkbox'
                        checked={props.item.completed}/>
-                <span style={{textDecoration:textDecorator}}>{props.item.text}</span>
+                <span style={props.item.completed? completedStyle: null}>{props.item.text}</span>
             </label>
         </div>
     )
